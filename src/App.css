@@ -16,3 +16,7 @@ body{
     border-radius: 1rem;
     border: 0px solid #d45f5f9d;
   }
+
+  .btn{
+    margin-bottom : 20px;
+  }

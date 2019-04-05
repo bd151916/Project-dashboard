@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardText, CardHeader, Row, Col, Collapse, Button } from 'reactstrap';
 import LastMeetingTabs from '../components/LastMeetingTabs';
+import axios from 'axios';
 
 import '../Container/Main.css';
 
-const datas =
+/* const datas =
     [
         {
 
@@ -23,9 +24,9 @@ const datas =
             Draw: 1,
             Defeat: 0,
         },
-    ]
+    ]*/
 
-const ResultsOverall =
+/* const ResultsOverall =
     [
         {
             Team: "PSG",
@@ -67,35 +68,44 @@ const ResultsOverall =
                 },
             ]
         },
-    ]
+    ] */
 
 export default class LastMeetingOverall extends Component {
-
-    constructor(props) {
-        super(props);
-        this.toggle = this.toggle.bind(this);
-        this.state = { collapse: false };
-    }
 
     toggle() {
         this.setState(state => ({ collapse: !state.collapse }));
     }
 
+    componentDidMount() {
+        axios.get(`http://localhost:4000/track/`)
+            .then(res => {
+                const tracks = res.data;
+                this.setState({ tracks });
+                console.log(res.data);
+            })
+    }
+
+    constructor(props) {
+        super(props);
+        this.toggle = this.toggle.bind(this);
+        this.state = { collapse: false , tracks: []};
+    }
+
     render() {
         return (
             <div className="mt-5">
-                <h4 className="text-center text-white font-weight-bold">Last Meeting Overall</h4>
+                <h4 className="text-center text-white font-weight-bold">Most recent tracks</h4>
                 <Row>
-                    {datas.map(d => (
+                    {this.state.tracks.map(d => (
                         <Col>
                             <Card className="mt-2 mb-2">
-                                <CardHeader className="text-center"> <h5>{d.Team}</h5></CardHeader>
+                                <CardHeader className="text-center"> <h5> Title : {d.Title}</h5></CardHeader>
                                 <CardBody>
                                     <Row>
                                         <Col>
                                             <Card className="bg-success text-white">
                                                 <CardBody className="text-center">
-                                                    <CardText>Victory : {d.Victory}</CardText>
+                                                    <CardText>Likes: {d.Likes}</CardText>
                                                 </CardBody>
                                             </Card>
                                         </Col>
@@ -103,15 +113,15 @@ export default class LastMeetingOverall extends Component {
                                         <Col>
                                             <Card className="bg-secondary text-white">
                                                 <CardBody className="text-center">
-                                                    <CardText>Draw : {d.Draw}</CardText>
+                                                    <CardText>Listen: {d.Listenings}</CardText>
                                                 </CardBody>
                                             </Card>
                                         </Col>
 
                                         <Col>
-                                            <Card className="bg-danger text-white">
+                                            <Card className="bg-info text-white">
                                                 <CardBody className="text-center">
-                                                    <CardText>Defeat : {d.Defeat}</CardText>
+                                                    <CardText>Duration: {d.Duration}</CardText>
                                                 </CardBody>
                                             </Card>
                                         </Col>
@@ -125,12 +135,12 @@ export default class LastMeetingOverall extends Component {
 
 
                 <div className="mt-4">
-                    <Button color="primary d-block ml-auto mr-auto pl-5 pr-5 shadow " onClick={this.toggle} >More information</Button>
+                    <Button color="primary d-block ml-auto mr-auto pl-5 pr-5 shadow " onClick={this.toggle} >List tracks</Button>
                     <Collapse isOpen={this.state.collapse}>
                         <Card>
                             <CardBody>
                                 <Row>
-                                    {ResultsOverall.map((data, index) => {
+                                    {this.state.tracks.map((data, index) => {
                                         return (
                                             <Col> <LastMeetingTabs key={index} Results={data} /> </Col>
                                         )

@@ -32,9 +32,9 @@ export default class SideMenu extends Component {
                 </div>
 
                 <div className="mt-5 text-center text-white">
-                    <h2>
-                        Statistics and numbers in order to bet in football
-                    </h2>
+                    <h3>
+                        Music's statistics and numbers API
+                    </h3>
                 </div>
             </div>
         );

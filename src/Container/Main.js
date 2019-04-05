@@ -14,10 +14,10 @@ export default class Main extends Component {
                     <h1 className="text-white font-weight-bold " >Bibliothèque</h1>
                 </div>
                 <Odds />
+                <LastMeetingOverall />
                 <Position/>
                 <LastMeetingBtwTeam />
-                <LastMeetingOverall />
-            </div>
+        </div>
         );
     }
 }
