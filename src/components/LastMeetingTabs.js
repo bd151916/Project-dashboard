@@ -5,10 +5,10 @@ import axios from 'axios';
 import '../Container/Main.css';
 
 export default class LastMeetingOverall extends Component {
-    
+
     state = {
         tracks: []
-      }
+    }
 
     componentDidMount() {
         axios.get(`http://localhost:4000/track/`)
@@ -16,9 +16,10 @@ export default class LastMeetingOverall extends Component {
                 const tracks = res.data;
                 this.setState({ tracks });
                 console.log(res.data);
+
             })
     }
-    
+
     render() {
 
         const { Results } = this.props;
@@ -28,7 +29,7 @@ export default class LastMeetingOverall extends Component {
                 <h5>Title : {Results.Title}</h5>
                 <Table striped>
                     <thead>
-                        <tr>    
+                        <tr>
                             <th>Likes</th>
                             <th>Listen</th>
                             <th>Duration</th>
@@ -36,13 +37,13 @@ export default class LastMeetingOverall extends Component {
                     </thead>
 
                     <tbody>
-                        {this.state.tracks.map(row => (
-                            <tr>
-                                <td>{row.Likes}</td>
-                                <td>{row.Listenings}</td>
-                                <td>{row.Duration}</td>
-                            </tr>
-                        ))}
+
+                        <tr>
+                            <td>{Results.Likes}</td>
+                            <td>{Results.Listenings}</td>
+                            <td>{Results.Duration}</td>
+                        </tr>
+
                     </tbody>
                 </Table>
             </div>
