@@ -77,7 +77,7 @@ export default class Edit extends Component {
             <h3 align="center">Update Track</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                    <label>Person Name:  </label>
+                    <label>Title:  </label>
                     <input 
                       type="text" 
                       className="form-control" 
@@ -86,7 +86,7 @@ export default class Edit extends Component {
                       />
                 </div>
                 <div className="form-group">
-                    <label>Business Name: </label>
+                    <label>Duration: </label>
                     <input type="text" 
                       className="form-control"
                       value={this.state.Duration}
@@ -94,7 +94,7 @@ export default class Edit extends Component {
                       />
                 </div>
                 <div className="form-group">
-                    <label>GST Number: </label>
+                    <label>Listenings: </label>
                     <input type="text" 
                       className="form-control"
                       value={this.state.Listenings}
@@ -102,7 +102,7 @@ export default class Edit extends Component {
                       />
                 </div>
                 <div className="form-group">
-                    <label>GST Number: </label>
+                    <label>Likes: </label>
                     <input type="text" 
                       className="form-control"
                       value={this.state.Likes}

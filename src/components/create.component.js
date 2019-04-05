@@ -84,7 +84,7 @@ export default class Create extends Component {
                       />
                 </div>
                 <div className="form-group">
-                    <label>Listeningz: </label>
+                    <label>Listenings: </label>
                     <input type="text" 
                       className="form-control"
                       value={this.state.Listenings}
@@ -92,7 +92,7 @@ export default class Create extends Component {
                       />
                 </div>
                 <div className="form-group">
-                    <label>Likez: </label>
+                    <label>Likes: </label>
                     <input type="text" 
                       className="form-control"
                       value={this.state.Likes}
