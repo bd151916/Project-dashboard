@@ -9,7 +9,7 @@ export default class Edit extends Component {
     this.onChangeListenings = this.onChangeListenings.bind(this);
     this.onChangeLikes = this.onChangeLikes.bind(this);
 
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmitTrack = this.onSubmitTrack.bind(this);
 
     this.state = {
       Title: '',
