@@ -1,6 +1,6 @@
 body{
-    background-image: linear-gradient(to right bottom, #dfdfdf, #d5d4e0, #c8c9e1, #babfe3, #a9b5e5);
-  }
+    background-image: linear-gradient(to left top, #fec16a, #ffaa6a, #ff9372, #ff7e7f, #f66d8f); 
+ }
 
   .bg-app{
     padding: 10px;
@@ -14,5 +14,5 @@ body{
   
   .card{
     border-radius: 1rem;
-    border: 0px solid rgba(0,0,0,.125);
+    border: 0px solid #d45f5f9d;
   }
