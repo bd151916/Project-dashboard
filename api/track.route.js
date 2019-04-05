@@ -35,6 +35,7 @@ trackRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
   Track.findById(id, function (err, track){
       res.json(track);
+      window.location.reload();
   });
 });
 
@@ -52,6 +53,7 @@ trackRoutes.route('/update/:id').post(function (req, res) {
 
         track.save().then(track => {
           res.json('Update complete');
+          window.location.reload();
         })
         .catch(err => {
           res.status(400).send("unable to update the database");
@@ -65,6 +67,7 @@ trackRoutes.route('/delete/:id').get(function (req, res) {
     Track.findByIdAndRemove({_id: req.params.id}, function(err, track){
         if(err) res.json(err);
         else res.json('Successfully removed');
+        window.location.reload();
     });
 });
 
