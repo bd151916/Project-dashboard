@@ -2,47 +2,19 @@ import React, { Component } from 'react';
 import { Card, CardBody, CardText, CardHeader, Row, Col, Collapse, Button } from 'reactstrap';
 import ChartComponents from './ChartComponents';
 
-const datas =
-    [
-        {
-            Team: "PSG",
-            Rank: 1,
-            Points: 74,
-            Color: "#1A2B4C",
-        },
-        {
-            Team: "Marseille",
-            Rank: 4,
-            Points: 47,
-            Color: "#009DDC",
-        },
-    ]
 
 const RankingEvol =
     [
         {
-            serie: "Ranking Evolution",
+            serie: "Listenings and Likes to Duration ratio",
             data: [
-                { name: '1', PSG: 2, Marseille: 1},
-                { name: '5', PSG: 1, Marseille: 2},
-                { name: '10', PSG: 1, Marseille: 3},
-                { name: '15', PSG: 1, Marseille: 5},
-                { name: '20', PSG: 1, Marseille: 6},
-                { name: '25', PSG: 1, Marseille: 4 },
-                { name: '30', PSG: 1, Marseille: 4 },
-            ]
-        },
-
-        {
-            serie: "Points Evolution",
-            data: [
-                { name: '1', PSG: 3, Marseille: 3 },
-                { name: '5', PSG: 15, Marseille: 10},
-                { name: '10', PSG: 30, Marseille: 19 },
-                { name: '15', PSG: 42, Marseille: 25},
-                { name: '20', PSG: 56, Marseille: 30 },
-                { name: '25', PSG: 67, Marseille: 40 },
-                { name: '30', PSG: 75, Marseille: 50 },
+                { name: '1', Likes: 38153, Listenings: 24131},
+                { name: '5', Likes: 13131, Listenings: 14612},
+                { name: '10', Likes: 21335, Listenings: 35683},
+                { name: '15', Likes: 35811, Listenings: 14315},
+                { name: '20', Likes: 10001, Listenings: 64866},
+                { name: '25', Likes: 54681, Listenings: 48354 },
+                { name: '30', Likes: 68461, Listenings: 36844 },
             ]
         },
 
@@ -61,22 +33,8 @@ export default class Position extends Component {
     render() {
         return (
             <div className="mt-5 mb-5">
-                <h4 className="text-center text-white font-weight-bold"> Ranking position : ligue 1</h4>
-                <Row>
-                    {datas.map(d => (
-                        <Col>
-                            <Card className=" mt-2 mb-2 text-white text-center w-75 d-block ml-auto mr-auto" style={{ backgroundColor: d.Color }}>
-                                <CardBody>
-                                    <Row >
-                                        <Col><CardText>{d.Team}</CardText></Col>
-                                        <Col><CardText>Rank : {d.Rank} </CardText></Col>
-                                        <Col><CardText> Points : {d.Points}</CardText></Col>
-                                    </Row>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                    ))}
-                </Row >
+                <h4 className="text-center text-white font-weight-bold"> Listenings and Likes to Duration ratio</h4>
+                
 
                 <div className="mt-4">
                     <Button color="primary d-block ml-auto mr-auto pl-5 pr-5 shadow " onClick={this.toggle} >More information</Button>

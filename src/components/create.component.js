@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Card, CardBody, CardText, CardHeader, Row, Col, Collapse, Button } from 'reactstrap';
 
 export default class Create extends Component {
   constructor(props) {
@@ -9,7 +10,10 @@ export default class Create extends Component {
     this.onChangeListenings = this.onChangeListenings.bind(this);
     this.onChangeLikes = this.onChangeLikes.bind(this);
 
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmitTrack = this.onSubmitTrack.bind(this);
+
+
+    
 
     this.state = {
       Title: '',
@@ -18,6 +22,8 @@ export default class Create extends Component {
       Likes:''
 
     }
+
+    
   }
   onChangeTitle(e) {
     this.setState({
@@ -41,7 +47,7 @@ export default class Create extends Component {
     })
   }
 
-  onSubmit(e) {
+  onSubmitTrack(e) {
     e.preventDefault();
     const obj = {
       Title: this.state.Title,
@@ -60,12 +66,15 @@ export default class Create extends Component {
       Likes: ''
     })
   }
+
  
   render() {
     return (
         <div style={{ marginTop: 10 }}>
+        <Row>
+          <Col>
             <h3 align="center">Add New Track</h3>
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmitTrack}>
                 <div className="form-group">
                     <label>Title:  </label>
                     <input 
@@ -105,6 +114,45 @@ export default class Create extends Component {
                       className="btn btn-primary"/>
                 </div>
             </form>
+            </Col>
+
+            <Col>
+            <h3 align="center">Add New Artist</h3>
+            <form onSubmit={this.onSubmitAlbum}>
+                <div className="form-group">
+                    <label>Name:  </label>
+                    <input 
+                      type="text" 
+                      className="form-control" 
+                      value={this.state.Name}
+                      onChange={this.onChangeName}
+                      />
+                </div>
+                <div className="form-group">
+                    <label>Birth: </label>
+                    <input type="text" 
+                      className="form-control"
+                      value={this.state.Birth}
+                      onChange={this.onChangeBirth}
+                      />
+                </div>
+                <div className="form-group">
+                    <label>Followers: </label>
+                    <input type="text" 
+                      className="form-control"
+                      value={this.state.Followers}
+                      onChange={this.onChangeFollowers}
+                      />
+                </div>
+                
+                <div className="form-group">
+                    <input type="submit" 
+                      value="Create Artist" 
+                      className="btn btn-primary"/>
+                </div>
+            </form>
+            </Col>
+            </Row>
         </div>
     )
   }
