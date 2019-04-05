@@ -46,7 +46,7 @@ export default class Odds extends Component {
         return (
 
             <div className="mt-5 mb-5">
-                <h4 className="text-center text-white font-weight-bold"> Odds next meeting </h4>
+                <h4 className="text-center text-white font-weight-bold"> Track List </h4>
                 <Row>
                     {this.state.tracks.map(d => (
                         <Col>
