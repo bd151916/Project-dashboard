@@ -1,44 +1,39 @@
 import React, { Component } from 'react';
 import {Form, FormGroup, Label, Input } from 'reactstrap';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+import Create from '../components/create.component';
+import Edit from '../components/edit.component';
+import Index from '../components/index.component';
 
 export default class Admin extends Component {
     render() {
         return (
-            <Form>
-                <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="examplePassword">Password</Label>
-                    <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleSelect">Select</Label>
-                    <Input type="select" name="select" id="exampleSelect">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleSelectMulti">Select Multiple</Label>
-                    <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleText">Text Area</Label>
-                    <Input type="textarea" name="text" id="exampleText" />
-                </FormGroup>
-            </Form>
-
+            <Router>
+            <div className="container">
+              <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <Link to={'/'} className="navbar-brand"></Link>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                      <Link to={'/'} className="nav-link">Main Page</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={'/create'} className="nav-link">Create</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={'/index'} className="nav-link">Index</Link>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <Switch>
+                <Route exact path='/create' component={Create} />
+                <Route path='/edit/:id' component={Edit} />
+                <Route path='/index' component={Index} />
+              </Switch>
+            </div>
+          </Router>
         )
     }
 }
