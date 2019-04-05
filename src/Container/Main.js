@@ -16,7 +16,7 @@ export default class Main extends Component {
                 <Odds />
                 <LastMeetingOverall />
                 <Position/>
-                <LastMeetingBtwTeam />
+                {/* <LastMeetingBtwTeam /> */}
         </div>
         );
     }
